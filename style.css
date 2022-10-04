@@ -1,0 +1,29 @@
+header {
+  text-align: center;
+}
+
+#employee_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.employee_card {
+  border: solid;
+  width: 300px;
+  height: fit-content;
+  margin: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+p {
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 600px){
+
+}
