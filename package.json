@@ -1,0 +1,29 @@
+{
+  "name": "team_profile_generator",
+  "version": "1.0.0",
+  "description": "generates an HTML about your team",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericaemorabito/Team_Profile_Generator.git"
+  },
+  "keywords": [
+    "generator"
+  ],
+  "author": "Erica Morabito",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericaemorabito/Team_Profile_Generator/issues"
+  },
+  "homepage": "https://github.com/ericaemorabito/Team_Profile_Generator#readme",
+  "dependencies": {
+    "inquirer": "^9.1.2"
+  }
+}
