@@ -1,7 +1,8 @@
 //The HTML template literal
 
 const generateHTML = function(data){
-  return `${data}`
+  console.log(data)
+  //return `${data}`
 };
 
 //export this module
