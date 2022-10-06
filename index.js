@@ -29,6 +29,7 @@ const startProgram = () => {
         createEngineer();
       } else if (choice.employee === 'None, I am finished.'){
         console.log('Finished!')
+        //! generateHTML function
         return;
       }
     })
@@ -66,8 +67,8 @@ function createManager() {
         input.office
       )
       team.push(newManager);
-      console.log(newManager);
-      console.log(team);
+      //console.log(newManager);
+      //console.log(team);
       startProgram()
     })
 }
@@ -105,8 +106,8 @@ const createEngineer = () => {
     )
     team.push(newEngineer);
     //check
-    console.log(newEngineer);
-    console.log(team);
+    //console.log(newEngineer);
+    //console.log(team);
     startProgram()
   })
 }
@@ -144,12 +145,13 @@ function createIntern() {
       )
       team.push(newIntern);
       //checks
-      console.log(newIntern)
-      console.log(team)
+      //console.log(newIntern)
+      //console.log(team)
       startProgram();
     })
 }
 
-
-
 startProgram();
+
+//Exporting the team array to be used in generateHTML.js
+module.exports = team;
