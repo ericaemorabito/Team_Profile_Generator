@@ -24,27 +24,64 @@ const startProgram = () => {
         createManager();
       } else if (choice.employee === 'Intern'){
         createIntern();
-      }
+      } else if (choice.employee === 'Engineer'){
+        createEngineer();
+      } else (console.log('Finished!'))
     })
 }
 
 function createManager() {
+  //? Use this type of thing here
+  //?then in the getName() use the inquirer.prompt
+  //Manager.getName(); --> name prompt
+  //Manager.getId(); ---> id prompt
+  //Manager.getEmail(); ---> email prompt
+  //Manager.getOfficeNumber(); ---> office number prompt
+  //Manager.getRole();
+  
   inquirer
     .prompt([
       {
         type: 'input',
         name: 'name',
-        message: 'Enter Manager name.'
-      }
+        message: 'Enter name.'
+      },
+      {
+        type: 'input',
+        name: 'id',
+        message: 'Enter employee id #.'
+      }, 
+      {
+        type: 'input',
+        name: 'email',
+        message: 'Enter employee email.'
+      },
+      {
+        type: 'input',
+        name: 'office',
+        message: 'Enter office number.'
+      }, 
     ])
     .then(function (input) {
-      console.log(input);
+      //console.log(input); //prints : { name: 'Erica', id: '123', email: '123@gmail', office: '3' }
       let newManager = new Manager(
-        //team.length,
-        input.name
+        input.name,
+        input.id,
+        input.email,
+        input.office
       )
       team.push(newManager);
-      console.log(team);
+      //console.log(newManager)
+      //console.log(team); 
+      //Prints -->
+      // [
+      //   Manager {
+      //     name: 'Erica',
+      //     id: '123',
+      //     email: '123@gmail',
+      //     officeNumber: '3'
+      //   }
+      // ]
       startProgram()
     })
 }
@@ -55,7 +92,7 @@ function createIntern() {
       {
         type: 'input',
         name: 'name',
-        message: 'Enter intern name.'
+        message: 'Enter name.'
       }
     ])
     .then(function(input){
@@ -72,7 +109,4 @@ function createIntern() {
 
 startProgram();
 
-
-//! put generate HTML function here
-
-//!
+module.exports = createManager;
