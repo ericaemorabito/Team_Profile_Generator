@@ -1,14 +1,22 @@
 //Import dependencies
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { generateHTML } = require('./generateHtml'); 
+
+//Classes
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 
-let team = []; //holds all info for the team
+//Generate HTML js page
+//const createEmployeeCards = require('./utils/generateHtml');
+//const htmlPageContent = require('./utils/generateHtml');
 
-//Starts asking questions to create employees
+//Filterteam.js page
+const createManagersArray = require('./utils/filterteam');
+//Team starts as an empty array
+let team = []; 
+
+//Begins prompting the user for team information
 const startProgram = () => {
   inquirer
     .prompt([
@@ -23,18 +31,24 @@ const startProgram = () => {
       console.log(choice)
       if (choice.employee === 'Manager') {
         createManager();
-      } else if (choice.employee === 'Intern'){
+      } else if (choice.employee === 'Intern') {
         createIntern();
-      } else if (choice.employee === 'Engineer'){
+      } else if (choice.employee === 'Engineer') {
         createEngineer();
-      } else if (choice.employee === 'None, I am finished.'){
+      } else if (choice.employee === 'None, I am finished.') {
+        //logs the final team array
+        console.log(team);
+        //Write the file
+        // fs.writeFile('index.html', htmlPageContent, (err) => {
+        //   err ? console.log(err) : console.log('HTML created');
+        // })
         console.log('Finished!')
-        //! generateHTML function
         return;
       }
     })
 }
 
+//Prompts to fill in employee's data
 function createManager() {
   inquirer
     .prompt([
@@ -47,7 +61,7 @@ function createManager() {
         type: 'input',
         name: 'id',
         message: 'Enter employee id #.'
-      }, 
+      },
       {
         type: 'input',
         name: 'email',
@@ -55,9 +69,9 @@ function createManager() {
       },
       {
         type: 'input',
-        name: 'office',
+        name: 'unique',
         message: 'Enter office number.'
-      }, 
+      },
     ])
     .then(function (input) {
       let newManager = new Manager(
@@ -75,41 +89,40 @@ function createManager() {
 
 const createEngineer = () => {
   inquirer
-  .prompt([
-    {
-      type: 'input',
-      name: 'name',
-      message: 'Enter name.'
-    },
-    {
-      type: 'input',
-      name: 'id',
-      message: 'Enter employee id #.'
-    }, 
-    {
-      type: 'input',
-      name: 'email',
-      message: 'Enter employee email.'
-    },
-    {
-      type: 'input',
-      name: 'github',
-      message: 'Enter github.'
-    }, 
-  ])
-  .then(function (input) {
-    let newEngineer = new Engineer(
-      input.name,
-      input.id,
-      input.email,
-      input.github
-    )
-    team.push(newEngineer);
-    //check
-    //console.log(newEngineer);
-    //console.log(team);
-    startProgram()
-  })
+    .prompt([
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Enter name.'
+      },
+      {
+        type: 'input',
+        name: 'id',
+        message: 'Enter employee id #.'
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: 'Enter employee email.'
+      },
+      {
+        type: 'input',
+        name: 'unique',
+        message: 'Enter github.'
+      },
+    ])
+    .then(function (input) {
+      let newEngineer = new Engineer(
+        input.name,
+        input.id,
+        input.email,
+        input.github
+      )
+      team.push(newEngineer);
+      //console.log(newEngineer);
+      //console.log(team);
+      startProgram()
+    })
 }
 
 function createIntern() {
@@ -119,12 +132,12 @@ function createIntern() {
         type: 'input',
         name: 'name',
         message: 'Enter name.'
-      }, 
+      },
       {
         type: 'input',
         name: 'id',
         message: 'Enter employee id #.'
-      }, 
+      },
       {
         type: 'input',
         name: 'email',
@@ -132,11 +145,11 @@ function createIntern() {
       },
       {
         type: 'input',
-        name: 'school',
+        name: 'unique',
         message: 'Enter intern associated school.'
       }
     ])
-    .then(function(input){
+    .then(function (input) {
       let newIntern = new Intern(
         input.name,
         input.id,
@@ -144,7 +157,6 @@ function createIntern() {
         input.school
       )
       team.push(newIntern);
-      //checks
       //console.log(newIntern)
       //console.log(team)
       startProgram();
@@ -153,5 +165,5 @@ function createIntern() {
 
 startProgram();
 
-//Exporting the team array to be used in generateHTML.js
+//Exporting the final team array to be used in generateHTML.js
 module.exports = team;
