@@ -1,6 +1,8 @@
 //Importing team array from index.js
 //const team = require('../index');
 
+const Engineer = require("../lib/Engineer")
+
 //!in progress
 // const createEmployeeCards = (team) => {
 // for (let i=0; i > team.length; i++){
@@ -77,19 +79,31 @@
 // </html>
 //   `
 
-  //filter for each employee type
 
-  // const managerArray = word.filter( 
-  //   function(team) {
-  //     team.forEach(getRole() === 'Manager')
-  //   })
-  // managerArray.forEach(createManagerCard())
-    
-    //1. filter to create new array with only manager
-    //2. for each createManagerCard <3
+//! add function get engineers 
+//! loop over engineer array and create html literal for each
 
-  //The html
+const getEngineers = (employees) => {
+  const engineers = employees.filter(employee => {
+    if (employee.getRole() === 'Engineer'){
+      return true;
+    } else {
+      return false;
+    }
+  })
+  console.log(engineers);
+}
 
-//export this module
-//module.exports= htmlPageContent;
-//module.exports = createEmployeeCards;
+module.exports = getEngineers;
+
+// employees => {
+//   //console.log(employees)
+//   const engineers = employees.filter(employee => {
+//     if (employee instanceof Engineer){
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   })
+//   console.log(engineers);
+// }

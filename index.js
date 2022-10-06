@@ -1,18 +1,13 @@
 //Import dependencies
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateHtml = require('./utils/generateHtml');
 
 //Classes
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 
-//Generate HTML js page
-//const createEmployeeCards = require('./utils/generateHtml');
-//const htmlPageContent = require('./utils/generateHtml');
-
-//Filterteam.js page
-const createManagersArray = require('./utils/filterteam');
 //Team starts as an empty array
 let team = []; 
 
@@ -37,7 +32,10 @@ const startProgram = () => {
         createEngineer();
       } else if (choice.employee === 'None, I am finished.') {
         //logs the final team array
-        console.log(team);
+        //console.log(team);
+        generateHtml(team);
+        //!call generate html function here 
+        //! return template literal
         //Write the file
         // fs.writeFile('index.html', htmlPageContent, (err) => {
         //   err ? console.log(err) : console.log('HTML created');
