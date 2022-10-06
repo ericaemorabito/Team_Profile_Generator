@@ -67,7 +67,7 @@ function createManager() {
       },
       {
         type: 'input',
-        name: 'unique',
+        name: 'office',
         message: 'Enter office number.'
       },
     ])
@@ -105,7 +105,7 @@ const createEngineer = () => {
       },
       {
         type: 'input',
-        name: 'unique',
+        name: 'github',
         message: 'Enter github.'
       },
     ])
@@ -143,7 +143,7 @@ function createIntern() {
       },
       {
         type: 'input',
-        name: 'unique',
+        name: 'school',
         message: 'Enter intern associated school.'
       }
     ])

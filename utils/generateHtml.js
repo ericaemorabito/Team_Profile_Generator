@@ -1,91 +1,52 @@
-//Importing team array from index.js
-//const team = require('../index');
+//Create each template literal card for every employee per array
 
-const Engineer = require("../lib/Engineer")
+//? how to add to base html
+//? how to create more than one card as iterates through array
+const createManagerCard = (managers) => {
+  for (let i = 0; i > managers.length; i++) {
 
-//!in progress
-// const createEmployeeCards = (team) => {
-// for (let i=0; i > team.length; i++){
-//   if (team[i].getRole() === 'Manager'){}
-//     createManagerCard()
-//   } else if (team[i].getRole() === 'Engineer'){
-//     createEngineerCard();
-//   } else if (team[i].getRole() === 'Intern'){
-//     createInternCard();
-//   }
-// }
+  const managerCard =
+  `<div class="employee_card">
+  <h2 class="name">${managers[i].getName()}</h2>
+  <p class="job">${managers[i].getRole()}</p>
+  <p class="id">${managers[i].getId()}</p>
+  <p class="email"><a href="${managers[i].getEmail()}"></a>${managers[i].getEmail()}</p>
+  <p class="unique">${managers[i].getOfficeNumber()}</p>
+  </div>`
+console.log(managerCard)
+  }
+}
 
-// const createManagerCard = (team) => {
-//   console.log('create manager')
-// }
+const createEngineerCard = (engineers) => {
+  for (let i = 0; i > engineers.length; i++) {
+    const engineerCard =
+      `<div class="employee_card">
+  <h2 class="name">${engineers[i].getName()}</h2>
+  <p class="job">${engineers[i].getRole()}</p>
+  <p class="id">${engineers[i].getId()}</p>
+  <p class="email"><a href="${engineers[i].getEmail()}"></a>${engineers[i].getEmail()}</p>
+  <p class="unique">${engineers[i].getGithub()}</p>
+</div>`
+  }
+}
 
-// const createEngineerCard = () => {
-//   console.log('create engineer')
-// }
+const createInternCard = (interns) => {
+  for (let i = 0; i > interns.length; i++) {
+    const internCard =
+      `<div class="employee_card">
+  <h2 class="name">${interns[i].getName()}</h2>
+  <p class="job">${interns[i].getRole()}</p>
+  <p class="id">${interns[i].getId()}</p>
+  <p class="email"><a href="${interns[i].getEmail()}"></a>${interns[i].getEmail()}</p>
+  <p class="unique">${interns[i].getSchool()}</p>
+</div>`
+  }
+}
 
-// const createInternCard = () => {
-//   console.log('create intern')
-// }
-
-
-// Template literal base for HTML
-// `<!DOCTYPE html>
-// <html lang="en">
-// <head>
-//   <meta charset="UTF-8">
-//   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-//   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//   <link rel="stylesheet" href="./style.css">
-//   <title>Meet the Team</title>
-// </head>
-// <body>
-//   <header>
-//     <h1>Meet the Team</h1>
-//     <p id="header_info">We're happy to have a mix of creative and analytical thinkers. Meet our talented team members.</p>
-//   </header>
-
-//   <!-- Display employee cards area-->
-//   <section id="employee_area">
-
-//     <!-- Manager -->
-//     <div class="employee_card">
-//       <h2 class="name">${employee1.getName()}</h2>
-//       <p class="job">${employee1.constructor.name}</p>
-//       <p class="id">${employee1.getId()}</p>
-//       <p class="email">${employee1.getEmail()}<a href="#"></a></p>
-//       <p class="github-office-school">${employee1.getUnique()}<a href="#"></a></p>
-//     </div>
-    
-//     <!-- Engineer -->
-//     <div class="employee_card">
-//       <h2 class="name"></h2>
-//       <p class="job"></p>
-//       <p class="id"></p>
-//       <p class="email"><a href="#"></a></p>
-//       <p class="github-office-school"><a href="#"></a></p>
-//     </div>
-
-//       <!-- Intern -->
-//       <div class="employee_card">
-//         <h2 class="name"></h2>
-//         <p class="job"></p>
-//         <p class="id"></p>
-//         <p class="email"><a href="#"></a></p>
-//         <p class="github-office-school"><a href="#"></a></p>
-//       </div>
-//   </section>
-
-// </body>
-// </html>
-//   `
-
-
-//! add function get engineers 
-//! loop over engineer array and create html literal for each
-
+//Filter function to get array of engineers, interns, managers
 const getEngineers = (employees) => {
   const engineers = employees.filter(employee => {
-    if (employee.getRole() === 'Engineer'){
+    if (employee.getRole() === 'Engineer') {
       return true;
     } else {
       return false;
@@ -94,10 +55,36 @@ const getEngineers = (employees) => {
   console.log(engineers);
 }
 
-module.exports = getEngineers;
+const getInterns = (employees) => {
+  const interns = employees.filter(employee => {
+    if (employee.getRole() === 'Intern') {
+      return true;
+    } else {
+      return false;
+    }
+  })
+  console.log(interns);
+}
 
+const getManagers = (employees) => {
+  const managers = employees.filter(employee => {
+    if (employee.getRole() === 'Manager') {
+      return true;
+    } else {
+      return false;
+    }
+  })
+  console.log(managers);
+  createManagerCard(managers);
+}
+
+module.exports = getEngineers;
+module.exports = getInterns;
+module.exports = getManagers;
+
+//AskBCS notes -----------
 // employees => {
-//   //console.log(employees)
+//console.log(employees)
 //   const engineers = employees.filter(employee => {
 //     if (employee instanceof Engineer){
 //       return true;
