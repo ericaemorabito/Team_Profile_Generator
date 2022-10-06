@@ -21,7 +21,9 @@ const startProgram = () => {
     .then((choice) => {
       console.log(choice)
       if (choice.employee === 'Manager') {
-        createManager();
+        let newManager = new Manager;
+        newManager.getName();
+        //createManager();
       } else if (choice.employee === 'Intern'){
         createIntern();
       } else if (choice.employee === 'Engineer'){
@@ -33,11 +35,11 @@ const startProgram = () => {
 function createManager() {
   //? Use this type of thing here
   //?then in the getName() use the inquirer.prompt
-  //Manager.getName(); --> name prompt
-  //Manager.getId(); ---> id prompt
-  //Manager.getEmail(); ---> email prompt
-  //Manager.getOfficeNumber(); ---> office number prompt
-  //Manager.getRole();
+  //newManager.getName(); --> name prompt
+  //newManager.getId(); ---> id prompt
+  //newManager.getEmail(); ---> email prompt
+  //newManager.getOfficeNumber(); ---> office number prompt
+  //newManager.getRole();
   
   inquirer
     .prompt([
