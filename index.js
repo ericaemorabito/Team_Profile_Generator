@@ -8,6 +8,13 @@ const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 
+//generateHtml.js
+const htmlPageContent = require('./utils/generateHtml');
+const createEmployeeCard = require('./utils/generateHtml');
+// const getManagers = require('./utils/generateHtml');
+// const getInterns = require('./utils/generateHtml');
+// const getEngineers = require('./utils/generateHtml');
+
 //Team starts as an empty array
 let team = []; 
 
@@ -23,7 +30,7 @@ const startProgram = () => {
       }
     ])
     .then((choice) => {
-      console.log(choice)
+      //console.log(choice)
       if (choice.employee === 'Manager') {
         createManager();
       } else if (choice.employee === 'Intern') {
@@ -31,15 +38,17 @@ const startProgram = () => {
       } else if (choice.employee === 'Engineer') {
         createEngineer();
       } else if (choice.employee === 'None, I am finished.') {
-        //logs the final team array
+        createEmployeeCard(team)
         //console.log(team);
-        generateHtml(team);
-        //!call generate html function here 
-        //! return template literal
+        // getManagers(team);
+        // getInterns(team);
+        // getEngineers(team);
+        // generateHtml(team);
+        //!call generate html function here --> return template literal
         //Write the file
-        // fs.writeFile('index.html', htmlPageContent, (err) => {
-        //   err ? console.log(err) : console.log('HTML created');
-        // })
+        fs.writeFile('index.html', htmlPageContent, (err) => {
+          err ? console.log(err) : console.log('HTML created');
+        })
         console.log('Finished!')
         return;
       }
