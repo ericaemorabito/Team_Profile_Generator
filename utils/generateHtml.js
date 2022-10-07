@@ -3,8 +3,8 @@
 //! text1.concat(text2)
 let employeeCards = '';
 
-let htmlPageContent = 
-`<!DOCTYPE html>
+let htmlPageContent =
+  `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -30,69 +30,49 @@ let htmlPageContent =
 
 const createEmployeeCard = (team) => {
   //iterate over team array
-  for (let i=0; i < team.length; i++){
+  for (let i = 0; i < team.length; i++) {
 
-    //set newEmployeeCard to a new template literal
-    let newEmployeeCard = 
-    `<div class="employee_card">
-    <h2 class="name">${team[i].getName()}</h2>
-    <p class="job">${team[i].constructor.name}</p>
-    <p class="id">${team[i].getId()}</p>
-    <p class="email"><a href="${team[i].getEmail()}"></a>${team[i].getEmail()}</p>
-    <p class="unique">${team[i].getOfficeNumber()}</p>
-    </div>`
-      
-    //add newEmployeeCard to the string for all employee cards 
-    console.log(newEmployeeCard)
-    employeeCards.concat(newEmployeeCard)
-    console.log(employeeCards);
+    if (team[i].getRole() === 'Manager') {
+      let newManagerCard =
+        `<div class="employee_card">
+          <h2 class="name">${team[i].getName()}</h2>
+          <p class="job">${team[i].constructor.name}</p>
+          <p class="id">${team[i].getId()}</p>
+          <p class="email"><a href="${team[i].getEmail()}"></a>${team[i].getEmail()}</p>
+          <p class="unique">${team[i].getOfficeNumber()}</p>
+          </div>`
+      console.log(newManagerCard); //working
+      employeeCards.concat(newManagerCard); //!issue
+    } else if (team[i].getRole() === 'Engineer') {
+      let newEngineerCard =
+        `<div class="employee_card">
+        <h2 class="name">${team[i].getName()}</h2>
+        <p class="job">${team[i].constructor.name}</p>
+        <p class="id">${team[i].getId()}</p>
+        <p class="email"><a href="${team[i].getEmail()}">${team[i].getEmail()}</a></p>
+        <p class="unique"><a href="${team[i].getGithub()}">${team[i].getGithub()}</a></p>
+        </div>`
+        console.log(newEngineerCard); //working 
+        employeeCards.concat(newEngineerCard); //!issue
+    } else if (team[i].getRole() === 'Intern') {
+      let newInternCard = 
+        `<div class="employee_card">
+        <h2 class="name">${team[i].getName()}</h2>
+        <p class="job">${team[i].constructor.name}</p>
+        <p class="id">${team[i].getId()}</p>
+        <p class="email"><a href="${team[i].getEmail()}">${team[i].getEmail()}</a></p>
+        <p class="unique">${team[i].getSchool()}</p>
+        </div>`
+      console.log(newInternCard); //assume working
+      employeeCards.concat(newInternCard); //!issue
+    } else {
+      console.log('These are all the employees:' + employeeCards); //!employeeCards is still 0
+      return;
+    }
   }
 }
 
-//?Create each type of card...
-// const createManagerCard = (managers) => {
-//   for (let i = 0; i > managers.length; i++) {
-
-//   const managerCard =
-//   `<div class="employee_card">
-//   <h2 class="name">${managers[i].getName()}</h2>
-//   <p class="job">${managers[i].getRole()}</p>
-//   <p class="id">${managers[i].getId()}</p>
-//   <p class="email"><a href="${managers[i].getEmail()}"></a>${managers[i].getEmail()}</p>
-//   <p class="unique">${managers[i].getOfficeNumber()}</p>
-//   </div>`
-    
-//   console.log(managerCard)
-//   }
-// }
-
-// const createEngineerCard = (engineers) => {
-//   for (let i = 0; i > engineers.length; i++) {
-//     const engineerCard =
-//       `<div class="employee_card">
-//   <h2 class="name">${engineers[i].getName()}</h2>
-//   <p class="job">${engineers[i].getRole()}</p>
-//   <p class="id">${engineers[i].getId()}</p>
-//   <p class="email"><a href="${engineers[i].getEmail()}"></a>${engineers[i].getEmail()}</p>
-//   <p class="unique">${engineers[i].getGithub()}</p>
-// </div>`
-//   }
-// }
-
-// const createInternCard = (interns) => {
-//   for (let i = 0; i > interns.length; i++) {
-//     const internCard =
-//       `<div class="employee_card">
-//   <h2 class="name">${interns[i].getName()}</h2>
-//   <p class="job">${interns[i].getRole()}</p>
-//   <p class="id">${interns[i].getId()}</p>
-//   <p class="email"><a href="${interns[i].getEmail()}"></a>${interns[i].getEmail()}</p>
-//   <p class="unique">${interns[i].getSchool()}</p>
-// </div>`
-//   }
-// }
-
-// //?Filter function to get array of engineers, interns, managers
+// //?Filter function to get array of engineers, interns, managers -----
 // const getEngineers = (employees) => {
 //   const engineers = employees.filter(employee => {
 //     if (employee instanceof Engineer) {
@@ -143,8 +123,4 @@ const createEmployeeCard = (team) => {
 //   console.log(engineers);
 // }
 
-
-module.exports = {createEmployeeCard, htmlPageContent}
-
-
-//Call filter functions --> call create card functions --> push to base HTML string --> passed into write file
+module.exports = { createEmployeeCard, htmlPageContent }
