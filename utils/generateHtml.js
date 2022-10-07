@@ -30,7 +30,7 @@ let htmlPageContent =
 
 const createEmployeeCard = (team) => {
   //iterate over team array
-  for (let i=0; i > team.length; i++){
+  for (let i=0; i < team.length; i++){
 
     //set newEmployeeCard to a new template literal
     let newEmployeeCard = 
@@ -43,8 +43,9 @@ const createEmployeeCard = (team) => {
     </div>`
       
     //add newEmployeeCard to the string for all employee cards 
-    //console.log(newEmployeeCard)
+    console.log(newEmployeeCard)
     employeeCards.concat(newEmployeeCard)
+    console.log(employeeCards);
   }
 }
 

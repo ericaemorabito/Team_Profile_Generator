@@ -1,7 +1,6 @@
 //Import dependencies
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateHtml = require('./utils/generateHtml');
 
 //Classes
 const Manager = require('./lib/Manager');
@@ -35,15 +34,9 @@ const startProgram = () => {
         createEngineer();
       } else if (choice.employee === 'None, I am finished.') {
         createEmployeeCard(team)
-        //console.log(team);
-        // getManagers(team);
-        // getInterns(team);
-        // getEngineers(team);
-        // generateHtml(team);
-        //!call generate html function here --> return template literal
         //Write the file
         fs.writeFile('index.html', htmlPageContent, (err) => {
-          err ? console.log(err) : console.log('HTML created');
+          err ? console.log(err) : console.log('HTML was created');
         })
         console.log('Finished!')
         return;
