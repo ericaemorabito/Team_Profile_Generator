@@ -1,6 +1,4 @@
 //Create each template literal card for every employee per array
-//? how to add to base html
-//? how to create more than one card as iterates through array
 
 //! text1.concat(text2)
 let employeeCards = '';
@@ -30,7 +28,6 @@ let htmlPageContent =
 </body>
 </html>`
 
-
 const createEmployeeCard = (team) => {
   //iterate over team array
   for (let i=0; i > team.length; i++){
@@ -46,6 +43,7 @@ const createEmployeeCard = (team) => {
     </div>`
       
     //add newEmployeeCard to the string for all employee cards 
+    //console.log(newEmployeeCard)
     employeeCards.concat(newEmployeeCard)
   }
 }
@@ -145,8 +143,7 @@ const createEmployeeCard = (team) => {
 // }
 
 
-module.exports = createEmployeeCard;
-module.exports = htmlPageContent;
+module.exports = {createEmployeeCard, htmlPageContent}
 
 
 //Call filter functions --> call create card functions --> push to base HTML string --> passed into write file

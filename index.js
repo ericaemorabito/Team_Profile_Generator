@@ -9,11 +9,7 @@ const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 
 //generateHtml.js
-const htmlPageContent = require('./utils/generateHtml');
-const createEmployeeCard = require('./utils/generateHtml');
-// const getManagers = require('./utils/generateHtml');
-// const getInterns = require('./utils/generateHtml');
-// const getEngineers = require('./utils/generateHtml');
+const { createEmployeeCard, htmlPageContent } = require('./utils/generateHtml');
 
 //Team starts as an empty array
 let team = []; 
