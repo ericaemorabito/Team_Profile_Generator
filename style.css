@@ -1,7 +1,32 @@
-header {
-  text-align: center;
+:root {
+  --dark: #103456;
+  --yellow: #ffe099;
 }
 
+* {
+  font-family: 'EB Garamond', serif;
+}
+
+header {
+  text-align: center;
+  color: var(--dark);
+}
+
+h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+  font-size: 2.5em;
+}
+
+#header_info {
+  font-size: 1.2em;
+}
+
+hr {
+  border: 1.5px solid var(--dark);
+}
+
+/* Section holding all employee cards */
 #employee_area {
   display: flex;
   flex-direction: column;
@@ -11,19 +36,47 @@ header {
   margin-top: 26px;
 }
 
+/* Each employee card */
 .employee_card {
-  border: solid;
-  width: fit-content;
-  height: fit-content;
+  color: var(--dark);
+  border: solid var(--dark);
+  width: 300px;
+  height: 240px;
   margin: 20px;
+  box-shadow: 10px 12px 0px 0px var(--dark);
 }
 
-h2 {
+.employee_card:hover {
+  box-shadow: 10px 12px 0px 0px var(--yellow);
+}
+
+/* Within the employee card*/
+.name {
+  font-size: 1.9em;
   text-align: center;
+  margin-bottom: 0px;
+  padding-top: 0px;
 }
 
 p {
-  padding: 0px 20px 0px 20px;
+  font-weight: 400;
+  /* font-style: italic; */
+  padding: 0px 35px 0px 35px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+a:hover {
+  color: var(--yellow);
+}
+
+.job {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 20px;
 }
 
 @media screen and (min-width: 600px){
