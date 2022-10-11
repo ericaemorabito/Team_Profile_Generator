@@ -5,13 +5,15 @@ header {
 #employee_area {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
+  margin-top: 26px;
 }
 
 .employee_card {
   border: solid;
-  width: 300px;
+  width: fit-content;
   height: fit-content;
   margin: 20px;
 }
@@ -21,11 +23,13 @@ h2 {
 }
 
 p {
-  padding-left: 20px;
+  padding: 0px 20px 0px 20px;
 }
 
 @media screen and (min-width: 600px){
 #employee_area {
   flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
 }
 }
