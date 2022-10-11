@@ -7,39 +7,40 @@ const createEmployeeCard = (team) => {
 
   //iterate over team array
   for (let i = 0; i < team.length; i++) {
-
+  //creates certain employee card by their roles
     if (team[i].getRole() === 'Manager') {
       newManagerCard =
         `<div class="employee_card">
           <h2 class="name">${team[i].getName()}</h2>
           <p class="job">${team[i].constructor.name}</p>
-          <p class="id">${team[i].getId()}</p>
-          <p class="email"><a href="${team[i].getEmail()}"></a>${team[i].getEmail()}</p>
-          <p class="unique">${team[i].getOfficeNumber()}</p>
+          <p class="id">ID: ${team[i].getId()}</p>
+          <p class="email">Email: <a href="${team[i].getEmail()}" target="_blank">${team[i].getEmail()}</a></p>
+          <p class="unique">Office: ${team[i].getOfficeNumber()}</p>
           </div>`
     } else if (team[i].getRole() === 'Engineer') {
       newEngineerCard =
         `<div class="employee_card">
         <h2 class="name">${team[i].getName()}</h2>
         <p class="job">${team[i].constructor.name}</p>
-        <p class="id">${team[i].getId()}</p>
-        <p class="email"><a href="${team[i].getEmail()}">${team[i].getEmail()}</a></p>
-        <p class="unique"><a href="${team[i].getGithub()}">${team[i].getGithub()}</a></p>
+        <p class="id">ID: ${team[i].getId()}</p>
+        <p class="email">Email: <a href="${team[i].getEmail()}" target="_blank">${team[i].getEmail()}</a></p>
+        <p class="unique">Github: <a href="https://github.com/${team[i].getGithub()}" target="_blank">${team[i].getGithub()}</a></p>
         </div>`
     } else if (team[i].getRole() === 'Intern') {
       newInternCard = 
         `<div class="employee_card">
         <h2 class="name">${team[i].getName()}</h2>
         <p class="job">${team[i].constructor.name}</p>
-        <p class="id">${team[i].getId()}</p>
-        <p class="email"><a href="${team[i].getEmail()}">${team[i].getEmail()}</a></p>
-        <p class="unique">${team[i].getSchool()}</p>
+        <p class="id">ID: ${team[i].getId()}</p>
+        <p class="email">Email: <a href="${team[i].getEmail()}" target="_blank>${team[i].getEmail()}</a></p>
+        <p class="unique">School: ${team[i].getSchool()}</p>
         </div>`
     } else {
       return;
     }
   }
   
+  //returns final html with all employee cards added
   return  `<!DOCTYPE html>
   <html lang="en">
   <head>

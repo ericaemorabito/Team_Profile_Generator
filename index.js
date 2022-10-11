@@ -105,7 +105,7 @@ const createEngineer = () => {
       {
         type: 'input',
         name: 'github',
-        message: 'Enter github.'
+        message: 'Enter github username.'
       },
     ])
     .then(function (input) {
