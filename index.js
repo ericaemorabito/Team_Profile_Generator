@@ -33,9 +33,10 @@ const startProgram = () => {
       } else if (choice.employee === 'Engineer') {
         createEngineer();
       } else if (choice.employee === 'None, I am finished.') {
-        createEmployeeCard(team)
+        //the result from the inputs
+        const finalHtml = createEmployeeCard(team)
         //Write the file
-        fs.writeFile('index.html', htmlPageContent, (err) => {
+        fs.writeFile('index.html', finalHtml, (err) => {
           err ? console.log(err) : console.log('HTML was created');
         })
         console.log('Finished!')
