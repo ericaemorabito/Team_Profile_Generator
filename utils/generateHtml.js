@@ -12,7 +12,7 @@ const createEmployeeCard = (team) => {
       <h2 class="name">${team[i].getName()}</h2>
       <p class="job">${team[i].constructor.name} <i class="fa-solid fa-briefcase"></i></p>
       <p class="id">ID: ${team[i].getId()}</p>
-      <p class="email">Email: <a href="${team[i].getEmail()}" target="_blank">${team[i].getEmail()}</a></p>
+      <p class="email">Email: <a href="mailto:${team[i].getEmail()}" target="_blank">${team[i].getEmail()}</a></p>
       <p class="unique">Office: ${team[i].getOfficeNumber()}</p>
       </div>`);
     } else if (team[i].getRole() === 'Engineer') {
@@ -20,7 +20,7 @@ const createEmployeeCard = (team) => {
       <h2 class="name">${team[i].getName()}</h2>
       <p class="job">${team[i].constructor.name} <i class="fa-solid fa-computer"></i></p>
       <p class="id">ID: ${team[i].getId()}</p>
-      <p class="email">Email: <a href="${team[i].getEmail()}" target="_blank">${team[i].getEmail()}</a></p>
+      <p class="email">Email: <a href="mailto:${team[i].getEmail()}" target="_blank">${team[i].getEmail()}</a></p>
       <p class="unique">Github: <a href="https://github.com/${team[i].getGithub()}" target="_blank">${team[i].getGithub()}</a></p>
       </div>`)
     } else {
@@ -28,7 +28,7 @@ const createEmployeeCard = (team) => {
       <h2 class="name">${team[i].getName()}</h2>
       <p class="job">${team[i].constructor.name} <i class="fa-solid fa-user-graduate"></i></p>
       <p class="id">ID: ${team[i].getId()}</p>
-      <p class="email">Email: <a href="${team[i].getEmail()}" target="_blank">${team[i].getEmail()}</a></p>
+      <p class="email">Email: <a href="mailto:${team[i].getEmail()}" target="_blank">${team[i].getEmail()}</a></p>
       <p class="unique">School: ${team[i].getSchool()}</p>
       </div>`)
     } 

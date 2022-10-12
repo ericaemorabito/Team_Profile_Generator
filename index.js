@@ -8,7 +8,7 @@ const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 
 //generateHtml.js
-const { createEmployeeCard, htmlPageContent } = require('./utils/generateHtml');
+const { createEmployeeCard } = require('./utils/generateHtml');
 
 //Team starts as an empty array
 let team = []; 
