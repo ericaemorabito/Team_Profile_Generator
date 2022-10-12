@@ -1,45 +1,39 @@
 //Create each template literal card for every employee per array and return final HTML markup
 
 const createEmployeeCard = (team) => {
-  let newManagerCard;
-  let newInternCard;
-  let newEngineerCard;
+  //All data to enter the base html will be pushed to this empty array
+  let employeeCards = [];
 
   //iterate over team array
   for (let i = 0; i < team.length; i++) {
   //creates certain employee card by their roles
     if (team[i].getRole() === 'Manager') {
-      newManagerCard =
-        `<div class="employee_card">
-          <h2 class="name">${team[i].getName()}</h2>
-          <p class="job">${team[i].constructor.name} <i class="fa-solid fa-briefcase"></i></p>
-          <p class="id">ID: ${team[i].getId()}</p>
-          <p class="email">Email: <a href="${team[i].getEmail()}" target="_blank">${team[i].getEmail()}</a></p>
-          <p class="unique">Office: ${team[i].getOfficeNumber()}</p>
-          </div>`
+      employeeCards.push(`<div class="employee_card">
+      <h2 class="name">${team[i].getName()}</h2>
+      <p class="job">${team[i].constructor.name} <i class="fa-solid fa-briefcase"></i></p>
+      <p class="id">ID: ${team[i].getId()}</p>
+      <p class="email">Email: <a href="${team[i].getEmail()}" target="_blank">${team[i].getEmail()}</a></p>
+      <p class="unique">Office: ${team[i].getOfficeNumber()}</p>
+      </div>`);
     } else if (team[i].getRole() === 'Engineer') {
-      newEngineerCard =
-        `<div class="employee_card">
-        <h2 class="name">${team[i].getName()}</h2>
-        <p class="job">${team[i].constructor.name} <i class="fa-solid fa-computer"></i></p>
-        <p class="id">ID: ${team[i].getId()}</p>
-        <p class="email">Email: <a href="${team[i].getEmail()}" target="_blank">${team[i].getEmail()}</a></p>
-        <p class="unique">Github: <a href="https://github.com/${team[i].getGithub()}" target="_blank">${team[i].getGithub()}</a></p>
-        </div>`
-    } else if (team[i].getRole() === 'Intern') {
-      newInternCard = 
-        `<div class="employee_card">
-        <h2 class="name">${team[i].getName()}</h2>
-        <p class="job">${team[i].constructor.name} <i class="fa-solid fa-user-graduate"></i></p>
-        <p class="id">ID: ${team[i].getId()}</p>
-        <p class="email">Email: <a href="${team[i].getEmail()}" target="_blank">${team[i].getEmail()}</a></p>
-        <p class="unique">School: ${team[i].getSchool()}</p>
-        </div>`
+      employeeCards.push(`<div class="employee_card">
+      <h2 class="name">${team[i].getName()}</h2>
+      <p class="job">${team[i].constructor.name} <i class="fa-solid fa-computer"></i></p>
+      <p class="id">ID: ${team[i].getId()}</p>
+      <p class="email">Email: <a href="${team[i].getEmail()}" target="_blank">${team[i].getEmail()}</a></p>
+      <p class="unique">Github: <a href="https://github.com/${team[i].getGithub()}" target="_blank">${team[i].getGithub()}</a></p>
+      </div>`)
     } else {
-      return;
-    }
+      employeeCards.push(`<div class="employee_card">
+      <h2 class="name">${team[i].getName()}</h2>
+      <p class="job">${team[i].constructor.name} <i class="fa-solid fa-user-graduate"></i></p>
+      <p class="id">ID: ${team[i].getId()}</p>
+      <p class="email">Email: <a href="${team[i].getEmail()}" target="_blank">${team[i].getEmail()}</a></p>
+      <p class="unique">School: ${team[i].getSchool()}</p>
+      </div>`)
+    } 
   }
-  
+
   //returns final html with all employee cards added
   return  `<!DOCTYPE html>
   <html lang="en">
@@ -63,9 +57,7 @@ const createEmployeeCard = (team) => {
 
     <!-- Display employee cards area-->
     <section id="employee_area">
-    ${newManagerCard}
-    ${newEngineerCard}
-    ${newInternCard}
+    ${employeeCards}
     </section>
   
   </body>
